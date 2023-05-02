@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "madaflutterbot-9mcr",
+  "private_key_id": "683ea46efd6d6538abafb1aeb3b3bda6f2a77e4c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDeBLOg0HfkLZiI\nv6ULRos5Q/TIRJNRU0PxNid5METi459pdkFullblNRlPH+E1QuJ5ItEkCAp53ngE\nlIdLzZ6C2/4+9L65mV4sJvGe+Mw17Jl8gfIPQKC1IWKTjkRbqEBLJaoaA9rL2sCi\nxvZK2NzXKcdwWnR+IRj3nUwFlnDjpBGeA21r20Q4T8Y+bGyD82Lg5OFHwrnM7Si4\nMcF8DNvxMu1ygEPtLv7EWJrfJe271oh1rutms3qTUU6nkEyL8ZerORMOPHASvjCC\nJnjtsZJBboClqkNuMVjihYKQ+8xwVtMGCSA3Ezox8TAyeaXr9Dg5x82Fwuh/x7oq\nplJoqw2jAgMBAAECggEAAYEBlzN2E/olNdd2BwsdOyS4/x5MCWiUzy58jZz1U+mK\n76pcpGaaT0NJdyHOkFMm5fA6YWTAFHm6q7GB4GjuGtVpm4uvWS1y1+tAjnWnOh/u\ns+Hb0KwqDGiHT0yw4fgukTHd06TRCm54+dI+nqB4YrwIXQ8AvqjOJfZPV9ErmU1E\nwAGu4jNXfYDcXnwE9Hn/baFSs/qXhD9Ae2itHYTF7W6eoDvgPdvSI4tlj+R42S3o\nOsimsf7Z2XhLHY9NLuTrIUrhAyO1p4K2btDdeEaIlZVgCoUT5LzlcMcpx9wZ5XKg\nkFpkRSw2kihWWVuZ6n8xX2jLXS1GUd1l7dsYO/0JCQKBgQD3J+A1t455Zt0BJdU6\nJAayRz9TkMitPHs7PMhJFUQgOQGIA5diEzbR3YJdrBv+QnZ+3K/NnI1oqFOSgUuH\n5QtazI0qy8xRXaNS7cfy5X8lfrUtknnTy6/w7DnxUR7nGuct+3eKMjKixprV9tio\nyi4bROhilrB0sDMv3ZgbkxRxhwKBgQDl9oya2posmWmMlqdTvPZpg2cD2zQkGKss\nKOSsbOLmehuV7DHpKWjlQP6lIqtYHf93ecGlpHyoRfO64JemLhU0O+ocn18kjO9G\nqqcnG8Ruy9aLEiMSBJ+yO57KxA1oUxCo62vP3iHmro2oDak1ll1W2ek/8F2scifO\nrKoYkCH6BQKBgQDbpAtDkZFC4B/tQjLgzV1KF7j2SYedNE+LUDPphsWZIS/0MMTa\neprQHFsbZbUm2ue1S+fMAKFGbbh/TPnTlb/mfDvD2YMEmANp0jhL6pl4t8bI7g/o\nIW6E21mO0/lzhdwGaCBOpteLApZdKVZXgf1BbJZb7vB3cpK6qeHgN3AGhwKBgQDj\n1jEaX4kutNRJUR35LhepFGJlBLIVLUeyWdWuK7dmiAZ6tGgCzV86+/kPXVkL1bS9\nB6nfVieXhK7lMQ2uvKuPc+kQcKoQCX4rsnonmjA1YclvQgnzGReru7wowrNR8DJq\nWc0YRsmpxrlcjiRejlpt6TpaeeglKXjdIF7qNSskjQKBgQDL/MOHF083yOQH9blR\ntwnzc9swICZIFITp0FAVCL6HqUjaahnRnwsOQc5vMGMpmTc0VRE4LwfonGbWblsT\njUz7nTpxvwmwLjuxuB+4BRqiWjEjVzc068xzBfgM5vfIryoGgC/t9enz+CcEIFfb\ngeJHKQGnP37gSXSvDPrrqilhNw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "gastrobot@madaflutterbot-9mcr.iam.gserviceaccount.com",
+  "client_id": "105891970794970606126",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gastrobot%40madaflutterbot-9mcr.iam.gserviceaccount.com"
+}
