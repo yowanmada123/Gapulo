@@ -20,7 +20,7 @@ class _RestaurantNewAddPageState extends State<RestaurantNewAddPage> {
   void initState() {
     super.initState();
     gstate.selectedIndex.value = 2;
-    print(gstate.selectedIndex.value);
+    // print(gstate.selectedIndex.value);
   }
 
   @override

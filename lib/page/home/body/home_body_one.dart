@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/animate.dart';
 import 'package:flutter_animate/effects/effects.dart';
 import 'package:flutter_animate/extensions/num_duration_extensions.dart';
+import 'package:gastronomy/controller/global_controller.dart';
 import 'package:gastronomy/page/gastronomy/gastronomy_page.dart';
 import 'package:gastronomy/utils/ext_text.dart';
 import 'package:gastronomy/widget/animation/on_hover_button.dart';
@@ -12,9 +13,11 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../utils/colors.dart';
 
 class HomeBodyOne extends StatelessWidget {
-  const HomeBodyOne({
+  HomeBodyOne({
     Key? key,
   }) : super(key: key);
+
+  var c = Get.put(GlobalController());
 
   @override
   Widget build(BuildContext context) {
@@ -109,14 +112,21 @@ class HomeBodyOne extends StatelessWidget {
                         icon: 'assets/images/ic_recipe.png',
                         title: 'Gastronomy',
                         ontap: () {
-                          // Get.to(const GastronomyPage());
+                          c.selectedIndex.value = 1;
+                          Get.to(const GastronomyPage());
                         },
                       ),
                       SizedBox(height: 20),
-                      const ItemInFirstPage(
+                      ItemInFirstPage(
                         description: 'Contains a list of cultures from the island of Lombok',
                         title: 'Culture',
                         icon: 'assets/images/ic_culture.png',
+                        ontap: () async {
+                          c.selectedIndex.value = 1;
+                          if (c.selectedIndex.value == 1) {
+                            Get.to(const GastronomyPage());
+                          }
+                        },
                       ),
                       SizedBox(height: 20),
                       const ItemInFirstPage(
@@ -176,6 +186,7 @@ class HomeBodyOne extends StatelessWidget {
                           OnHoverButton(
                             child: BaseButton(
                               ontap: () {
+                                c.selectedIndex.value = 1;
                                 Get.to(const GastronomyPage());
                               },
                               width: 0.13 * Get.width,

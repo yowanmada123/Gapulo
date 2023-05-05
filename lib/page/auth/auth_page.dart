@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gastronomy/controller/global_controller.dart';
+import 'package:gastronomy/page/auth/login/login_page.dart';
+import 'package:gastronomy/page/home/homepage.dart';
 import 'package:get/get.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -10,10 +12,11 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  final c = Get.find<GlobalController>();
+  // final c = Get.putlobalController();
+  var c = Get.put(GlobalController());
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => init());
   }
@@ -21,10 +24,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
   init() async {
     //todo load from box;
     await c.initState();
-    if (c.token.isNotEmpty) {
-      // Get.offAll(HomePage());
+    String? token = await c.getToken();
+    if (token == null) {
+      Get.offAll(HomePage());
     } else {
-      // Get.offAll(const AllScreen());
+      Get.offAll(const LoginPage());
     }
   }
 

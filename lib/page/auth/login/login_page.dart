@@ -30,16 +30,29 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         body: Stack(children: [
       Container(
         color: const Color(0xff1B1919),
       ),
-      Positioned(
-        bottom: 0,
-        right: 80,
-        child: Image.asset("assets/images/img_bg_login.png"),
-      ),
+      currentWidth < 600
+          ? Positioned(
+              bottom: -100,
+              right: 0,
+              child: Image.asset(
+                "assets/images/img_bg_login.png",
+                width: 400,
+                height: 400,
+              ),
+            )
+          : Positioned(
+              bottom: 0,
+              right: 80,
+              child: Image.asset(
+                "assets/images/img_bg_login.png",
+              ),
+            ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 80, vertical: 40),
         child: Column(
@@ -165,9 +178,9 @@ class _LoginPageState extends State<LoginPage> {
                       lc.password = passwordController.text;
                       // print(lc.email);
                       // print(lc.password);
-                      Get.offAll(HomePage());
+                      // Get.offAll(HomePage());
 
-                      // lc.login(context);
+                      lc.login(context);
                       // service.login();
                       // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       //   content: Text('Login Success'),

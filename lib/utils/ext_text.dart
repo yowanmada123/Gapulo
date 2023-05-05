@@ -41,6 +41,8 @@ extension TextExtension on Text {
   Text nunito15m() => copyWith(style: GoogleFonts.nunito(fontSize: 15, fontWeight: FontWeight.w600));
   Text nunito15b() => copyWith(style: GoogleFonts.nunito(fontSize: 15, fontWeight: FontWeight.w700));
   Text nunito10s() => copyWith(style: GoogleFonts.nunito(fontSize: 10, fontWeight: FontWeight.w400));
+  Text nunito10m() => copyWith(style: GoogleFonts.nunito(fontSize: 10, fontWeight: FontWeight.w600));
+  Text nunito10b() => copyWith(style: GoogleFonts.nunito(fontSize: 10, fontWeight: FontWeight.w700));
 
   Text white() => copyWith(style: const TextStyle(color: Colors.white));
   Text greenSmooth() => copyWith(style: TextStyle(color: OGoodGreen));

@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:gastronomy/controller/global_controller.dart';
 import 'package:gastronomy/page/auth/login/login_page.dart';
+import 'package:gastronomy/page/home/homepage.dart';
 import 'package:get/get.dart' hide Response, FormData, MultipartFile;
 // import 'package:get/get.dart';
 // import 'package:http/http.dart' as http;
@@ -34,7 +35,7 @@ class AuthController extends GetxController {
     try {
       // final response = await dio.post('${c.baseUrl}login', data: formData);
       final response = await dio.post(
-        'http://192.168.195.195:5009/api/auth/login',
+        'http://gapulo.tech/api/auth/login',
         options: Options(headers: {
           // "Authorization":
           //       "Bearer $token",
@@ -60,7 +61,7 @@ class AuthController extends GetxController {
         ));
         // c.isLogin.value = true;
         clearData();
-        // Get.offAll(HomePage());
+        Get.offAll(HomePage());
       } else {
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(

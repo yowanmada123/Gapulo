@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: const CustomAppbar(),
         body: Stack(children: [
-          ListView(children: const [
+          ListView(children: [
             HomeBodyOne(),
             Divider(),
             HomeBodyTwo(),

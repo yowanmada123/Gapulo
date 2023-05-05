@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gastronomy/page/about_us/about_us_page.dart';
+import 'package:gastronomy/page/auth/auth_page.dart';
 import 'package:gastronomy/page/culture/culture_page.dart';
 import 'package:gastronomy/page/culture/detailpage/culture_detail_page.dart';
 import 'package:gastronomy/page/gastrobot/gastrobot_page.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Gastronomy Pulau Lombok',
       initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: () => const ProfilePage()),
+        GetPage(name: '/', page: () => const LoadingScreen()),
         GetPage(name: '/second', page: () => const GastrobotPage()),
       ],
       // home: HomePage(),
