@@ -25,20 +25,23 @@ class RestaurantDrinkFieldState extends State<RestaurantDrinkField> {
         GestureDetector(
           onTap: () {
             final controller = TextEditingController();
-            final field = TextField(
-              controller: controller,
-              style: const TextStyle(color: Colors.black, fontSize: 25),
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: "Makanan ${_controllers.length + 1}",
-                hintStyle: const TextStyle(color: Colors.grey, fontSize: 18),
+            final field = Material(
+              child: TextField(
+                controller: controller,
+                // onChanged: (){},
+                style: const TextStyle(color: Colors.black, fontSize: 25),
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Makanan ${_controllers.length + 1}",
+                  hintStyle: const TextStyle(color: Colors.grey, fontSize: 18),
+                ),
               ),
             );
             setState(() {
               maxField++;
               if (maxField < 6) {
                 _controllers.add(controller);
-                _fields.add(field);
+                // _fields.add(field);
               }
             });
           },
@@ -71,7 +74,8 @@ class RestaurantDrinkFieldState extends State<RestaurantDrinkField> {
           children: [
             Row(
               children: [
-                Expanded(flex: 1,
+                Expanded(
+                  flex: 1,
                   child: Container(
                     height: 41,
                     padding: const EdgeInsets.only(left: 15, bottom: 8),
