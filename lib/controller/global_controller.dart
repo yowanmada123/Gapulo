@@ -8,12 +8,11 @@ class GlobalController extends GetxController {
   var selectedIndex = 0.obs;
 
   final isLogin = false.obs;
+  final url = "http://gapulo.tech/api";
   var tapbar = ['Home', 'Gastronomy', 'Restaurant', 'Culture', 'Reference Village', 'About'];
 
   final box = GetStorage();
   final token = ''.obs;
-  final baseUrl = "https://starkids.id/api/data/";
-  final postEndpoint = "https://jsonplaceholder.typicode.com/posts";
   int pasienNumber = 0;
 
   initState() {

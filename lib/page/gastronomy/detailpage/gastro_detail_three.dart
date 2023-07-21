@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:gastronomy/page/gastronomy/listpage/gastronomy_list_page_controller.dart';
 import 'package:gastronomy/utils/ext_text.dart';
 import 'package:gastronomy/widget/custom/custom_rounded_image.dart';
+import 'package:get/get.dart';
 
 class GastroDetailThree extends StatelessWidget {
-  GastroDetailThree({super.key});
+  GastroDetailThree({super.key, required this.index});
+  final int index;
+  var l = Get.put(GastronomyListPageController());
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -66,28 +70,28 @@ class GastroDetailThree extends StatelessWidget {
           child: Column(
             children: [
               Row(
-                children: const [
+                children: [
                   Expanded(
                       flex: 1,
                       child: CustomRoundedImage(
-                        image: "assets/images/img_recipe_ayam.png",
+                        image: "http://gapulo.tech${l.foods[index].howToMakePictures[0]}",
                         outlineRounded: 20,
                         height: 246,
                       )),
                   SizedBox(width: 20),
-                  Expanded(flex: 1, child: CustomRoundedImage(image: "assets/images/img_recipe_ayam.png", outlineRounded: 20, height: 246)),
+                  Expanded(flex: 1, child: CustomRoundedImage(image: "http://gapulo.tech${l.foods[index].howToMakePictures[0]}", outlineRounded: 20, height: 246)),
                   SizedBox(width: 20),
-                  Expanded(flex: 1, child: CustomRoundedImage(image: "assets/images/img_recipe_ayam.png", outlineRounded: 20, height: 246)),
+                  Expanded(flex: 1, child: CustomRoundedImage(image: "http://gapulo.tech${l.foods[index].howToMakePictures[1]}", outlineRounded: 20, height: 246)),
                 ],
               ),
               const SizedBox(height: 20),
               Row(
-                children: const [
-                  Expanded(flex: 1, child: CustomRoundedImage(image: "assets/images/img_recipe_ayam.png", outlineRounded: 20, height: 246)),
+                children: [
+                  Expanded(flex: 1, child: CustomRoundedImage(image: "http://gapulo.tech${l.foods[index].howToMakePictures[2]}", outlineRounded: 20, height: 246)),
                   SizedBox(width: 20),
-                  Expanded(flex: 1, child: CustomRoundedImage(image: "assets/images/img_recipe_ayam.png", outlineRounded: 20, height: 246)),
+                  Expanded(flex: 1, child: CustomRoundedImage(image: "http://gapulo.tech${l.foods[index].howToMakePictures[1]}", outlineRounded: 20, height: 246)),
                   SizedBox(width: 20),
-                  Expanded(flex: 1, child: CustomRoundedImage(image: "assets/images/img_recipe_ayam.png", outlineRounded: 20, height: 246)),
+                  Expanded(flex: 1, child: CustomRoundedImage(image: "http://gapulo.tech${l.foods[index].howToMakePictures[0]}", outlineRounded: 20, height: 246)),
                 ],
               ),
             ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gastronomy/controller/global_controller.dart';
+import 'package:gastronomy/page/auth/login/login_page.dart';
 import 'package:gastronomy/page/tourist_village/mainpage/tourist_body.dart';
 import 'package:gastronomy/utils/colors.dart';
 import 'package:gastronomy/utils/ext_text.dart';
@@ -289,7 +290,15 @@ class _ProfilePageState extends State<ProfilePage> {
                                                   ),
                                                 ],
                                               ),
-                                              Icon(Icons.edit)
+                                              GestureDetector(
+                                                  onTap: () {
+                                                    c.removeToken();
+                                                    Get.to(LoginPage());
+                                                  },
+                                                  child: Icon(
+                                                    Icons.logout,
+                                                    color: Colors.red,
+                                                  ))
                                             ],
                                           ),
                                           SizedBox(

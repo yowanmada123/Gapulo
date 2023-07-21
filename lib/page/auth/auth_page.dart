@@ -12,7 +12,6 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  // final c = Get.putlobalController();
   var c = Get.put(GlobalController());
 
   @override
@@ -25,10 +24,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
     //todo load from box;
     await c.initState();
     String? token = await c.getToken();
-    if (token == null) {
-      Get.offAll(HomePage());
-    } else {
+    print("=============================");
+    print(token);
+    print("=============================");
+    if (token == null || token == "" || token == "null") {
       Get.offAll(const LoginPage());
+    } else {
+      Get.offAll(HomePage());
     }
   }
 

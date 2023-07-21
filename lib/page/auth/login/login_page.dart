@@ -10,8 +10,6 @@ import 'package:gastronomy/widget/animation/on_hover_button.dart';
 import 'package:gastronomy/widget/button/button_base.dart';
 import 'package:get/get.dart';
 
-import '../../home/homepage.dart';
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 

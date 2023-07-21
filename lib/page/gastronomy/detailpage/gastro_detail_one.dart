@@ -8,6 +8,7 @@ import '../../../utils/colors.dart';
 
 class GastroDetailOne extends StatelessWidget {
   GastroDetailOne({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return Column(

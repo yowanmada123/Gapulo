@@ -22,35 +22,24 @@ class AuthController extends GetxController {
   void login(BuildContext context) async {
     print(email);
     print(password);
-    // final token = await c.getToken();
-    // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-    //   content: Text('Login Success'),
-    //   backgroundColor: Colors.black87,
-    // ));
-    // final formData = FormData.fromMap({'email': "$email", 'password': "$password"});
     var json = {
       "email": "$email",
       "password": "$password",
     };
     try {
-      // final response = await dio.post('${c.baseUrl}login', data: formData);
       final response = await dio.post(
-        'http://gapulo.tech/api/auth/login',
+        '${c.url}/auth/login',
         options: Options(headers: {
-          // "Authorization":
-          //       "Bearer $token",
           HttpHeaders.contentTypeHeader: "application/json",
         }),
         data: jsonEncode(json),
       );
-      // final response = await dio.post('http://192.168.195.195:5009/api/auth/login', data: formData);
-      // print(response);
       print("=====================================");
       print(response.statusCode);
       // print(response.data);
       print(response.data["token"]);
       var ok = response.data?["success"];
-      if (response.statusCode == 200) {
+      if (response.statusCode! >= 200 && response.statusCode! < 400) {
         // print(response.data["response"]);
         c.setToken(response.data['token']);
         c.setLogin();
@@ -98,7 +87,7 @@ class AuthController extends GetxController {
     try {
       // final response = await dio.post('${c.baseUrl}login', data: formData);
       final response = await dio.post(
-        'http://192.168.195.195:5009/api/auth/register',
+        '${c.url}/auth/register',
         options: Options(headers: {
           // "Authorization":
           //       "Bearer $token",

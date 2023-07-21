@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gastronomy/controller/global_controller.dart';
+import 'package:gastronomy/page/gastronomy/listpage/gastronomy_list_page_controller.dart';
 import 'package:gastronomy/utils/colors.dart';
 import 'package:gastronomy/utils/ext_text.dart';
 import 'package:gastronomy/widget/animation/on_hover_button.dart';
@@ -17,11 +18,14 @@ class ListGastronomyPage extends StatefulWidget {
 
 class _ListGastronomyPageState extends State<ListGastronomyPage> {
   var c = Get.put(GlobalController());
+  var l = Get.put(GastronomyListPageController());
+
   @override
   void initState() {
     super.initState();
     c.selectedIndex.value = 1;
     print(c.selectedIndex.value);
+    l.getAllFoods(context);
   }
 
   @override
@@ -89,7 +93,15 @@ class _ListGastronomyPageState extends State<ListGastronomyPage> {
                 ),
               ),
               SizedBox(height: 37),
-              ListView.builder(physics: const NeverScrollableScrollPhysics(), shrinkWrap: true, itemCount: 8, itemBuilder: (BuildContext context, int index) => ListItem())
+              Obx(() => (l.foodsLoading.value)
+                  ? ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: l.foods.length,
+                      itemBuilder: (BuildContext context, int index) => ListItem(
+                            index: index,
+                          ))
+                  : CircularProgressIndicator())
             ],
           ),
         ),
@@ -100,9 +112,14 @@ class _ListGastronomyPageState extends State<ListGastronomyPage> {
 }
 
 class ListItem extends StatelessWidget {
-  const ListItem({
+  ListItem({
     Key? key,
+    required this.index,
   }) : super(key: key);
+
+  final int index;
+
+  var l = Get.put(GastronomyListPageController());
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +129,9 @@ class ListItem extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 80),
           child: GestureDetector(
             onTap: () {
-              Get.to(GastronomyDetailPage());
+              Get.to(GastronomyDetailPage(
+                index: index,
+              ));
             },
             child: OnHoverButton(
               child: Column(
@@ -127,7 +146,41 @@ class ListItem extends StatelessWidget {
                             width: 427,
                             height: 232,
                             child: FittedBox(
-                              child: Image.asset("assets/images/img_recipe_ayam.png"),
+                              child: Image.network("http://gapulo.tech${l.foods[index].culturePictures[0].picture}", fit: BoxFit.cover, errorBuilder: (context, error, stackTrace) {
+                                return Column(
+                                  children: [
+                                    Container(
+                                      height: 80,
+                                      color: Colors.white,
+                                      alignment: Alignment.center,
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.warning_rounded,
+                                            color: Colors.red,
+                                            size: 20,
+                                          ),
+                                          Text(
+                                            'No Available Image',
+                                            style: TextStyle(fontSize: 10, color: Colors.black),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              }, loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                                if (loadingProgress == null) return child;
+                                return SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: CircularProgressIndicator(
+                                    value: loadingProgress.expectedTotalBytes != null ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes! : null,
+                                  ),
+                                );
+                              }),
+                              // Image.asset("assets/images/img_recipe_ayam.png"),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -144,23 +197,23 @@ class ListItem extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text("Traditional Food").nunito20s().black(),
+                                Text(l.foods[index].name).nunito20s().black(),
                                 Row(
                                   children: [
                                     Image.asset("assets/images/ic_location_primary.png"),
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    const Text("Traditional Food").nunito18s().black(),
+                                    Text("Lombok").nunito18s().black(),
                                   ],
                                 ),
                               ],
                             ),
                             SizedBox(height: 10),
-                            const Text("Traditional Food").nunito30b().black(),
+                            Text(l.foods[index].name).nunito30b().black(),
                             SizedBox(height: 15),
-                            const Text(
-                              "Ayam Taliwang adalah makanan yang berasal dari Taliwang, Sumbawa Barat, Nusa Barat Tenggara yang bahan utamanya adalah ayam kampung muda. Ayam kampung muda dibakar dengan bumbu khas Taliwang dan ...",
+                            Text(
+                              l.foods[index].description,
                               maxLines: 4,
                             ).nunito20s().black(),
                             SizedBox(height: 30),

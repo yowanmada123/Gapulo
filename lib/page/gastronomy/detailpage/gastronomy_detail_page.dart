@@ -6,6 +6,7 @@ import 'package:gastronomy/page/gastronomy/detailpage/gastro_detail_one.dart';
 import 'package:gastronomy/page/gastronomy/detailpage/gastro_detail_six.dart';
 import 'package:gastronomy/page/gastronomy/detailpage/gastro_detail_three.dart';
 import 'package:gastronomy/page/gastronomy/detailpage/gastro_detail_two.dart';
+import 'package:gastronomy/page/gastronomy/listpage/gastronomy_list_page_controller.dart';
 import 'package:gastronomy/utils/colors.dart';
 import 'package:gastronomy/widget/custom/custom_appbar.dart';
 import 'package:gastronomy/widget/custom/custom_footbar.dart';
@@ -13,7 +14,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GastronomyDetailPage extends StatefulWidget {
-  const GastronomyDetailPage({super.key});
+  const GastronomyDetailPage({super.key, required this.index});
+  final int index;
 
   @override
   State<GastronomyDetailPage> createState() => _GastronomyDetailPageState();
@@ -21,11 +23,13 @@ class GastronomyDetailPage extends StatefulWidget {
 
 class _GastronomyDetailPageState extends State<GastronomyDetailPage> {
   var gstate = Get.put(GlobalController());
+  var l = Get.put(GastronomyListPageController());
+
   @override
   void initState() {
     super.initState();
     gstate.selectedIndex.value = 1;
-    print(gstate.selectedIndex.value);
+    // print(gstate.selectedIndex.value);
   }
 
   @override
@@ -43,7 +47,7 @@ class _GastronomyDetailPageState extends State<GastronomyDetailPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: Get.width / 1536 * 82),
                   child: Column(
-                    children: [GastroDetailOne(), Divider(), GastroDetailTwo(), Divider(), GastroDetailThree(), Divider(), GastroDetailFour(), Divider(), GastroDetailFive(), Divider(), GastroDetailSix(), Divider(), FootBar()],
+                    children: [GastroDetailOne(), Divider(), GastroDetailTwo(index: widget.index), Divider(), GastroDetailThree(index: widget.index,), Divider(), GastroDetailFour(), Divider(), GastroDetailFive(), Divider(), GastroDetailSix(), Divider(), FootBar()],
                   ),
                 )
               ],
